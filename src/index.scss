@@ -1,0 +1,9 @@
+//Add your partials here (partials are inside sass folder)
+
+//Setup
+@use "./sass/setup";
+@use "./sass/global-styles";
+@use "./sass/typography";
+
+//Components
+@use "./sass/header";
