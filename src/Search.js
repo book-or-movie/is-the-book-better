@@ -24,7 +24,7 @@ const Search = () => {
         return movie.title.toLowerCase() === urlParamsValue.title.toLowerCase()
       })
       
-      console.log(newState)
+      console.log(newMovieState)
      
     }, [])
   })
