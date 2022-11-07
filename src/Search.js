@@ -6,7 +6,7 @@ import {useState, useEffect} from "react";
 const Search = () => {
 
   const [movieData, setMovieData] = useState({});
-
+  const [bookData, setBookData] = useState ({});
 
   const urlParamsValue = useParams();
   
@@ -19,11 +19,12 @@ const Search = () => {
       }
     }).then((details)=> {
    
-  
-      const newState = details.data.results.filter((movie) => {
+ 
+      const newMovieState = details.data.results.filter((movie) => {
         return movie.title.toLowerCase() === urlParamsValue.title.toLowerCase()
       })
-  
+      
+      console.log(newState)
      
     }, [])
   })
@@ -42,11 +43,9 @@ const Search = () => {
     })
         .then((response) => {
           
-          const newState = response.data.items.filter((book)=> {
+          const newBookState = response.data.items.filter((book)=> {
             return book.volumeInfo.title.toLowerCase() === urlParamsValue.title.toLowerCase()
           })
-
-          console.log(newState)
         })
 }, [])
 
