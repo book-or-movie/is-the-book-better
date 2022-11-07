@@ -1,6 +1,6 @@
 //Packages installed so far:  Sass, Axios, react-router-dom
 
-import { Link, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Header from "./Header";
 import SearchResults from "./SearchResults";
