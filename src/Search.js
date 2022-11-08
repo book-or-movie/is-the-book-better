@@ -21,10 +21,10 @@ const Search = () => {
   return (
     <div className="search-field-container">
       <form className='search-form'>
-        <label htmlFor="searchField">
+        <label htmlFor="search-field">
           <span className="sr-only">Search for a book</span>
         </label>
-        <input type="text" id="searchField" name="bookTitle" placeholder="Search a book title" required onChange={handleInput} value={input} className="search-input"></input>
+        <input type="text" id="search-field" name="bookTitle" placeholder="Search a book title" required onChange={handleInput} value={input} className="search-input"></input>
         <button onClick={handleFormSubmit} className="search-submit-btn">Search</button>
       </form>
     </div>
