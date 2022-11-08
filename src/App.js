@@ -14,8 +14,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/search" element={< SearchResults/>} />
-        <Route path="/search/:title" element={<Search />} />
+        <Route path="/search/:title" element={< SearchResults />} />
       </Routes>
 
       <Footer />
