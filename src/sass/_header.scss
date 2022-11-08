@@ -1,0 +1,21 @@
+@use "variables" as *;
+
+
+header{
+    height: 70vh;
+    border: 5px solid red;
+    h1{
+        display: flex;
+        justify-content: end;
+        align-items: baseline;
+        font-size: 6rem;
+        font-family: 'Maitree', serif;
+        font-weight: bold;
+        color: $primaryColor;
+        text-transform: uppercase;
+        text-shadow: $secondaryColor 2px 5px;
+        padding: 20px;
+
+    }
+
+}

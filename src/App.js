@@ -1,9 +1,10 @@
 //Packages installed so far:  Sass, Axios, react-router-dom
+import Header from "./Header";
 
 function App() {
   return (
     <div className="App">
-      <h1>Is the book better?</h1>
+      <Header />
       {/*Components to be defined*/}
 
     </div>
