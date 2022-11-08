@@ -3,7 +3,7 @@ import Search from './Search';
 
 const SearchResults = () =>{
   return (
-    <section className="searchResults">
+    <section className="search-results-section">
       <div>SearchResults</div> 
 
       <Search />
