@@ -17,7 +17,7 @@ const Search = () => {
     navigate(`/search/${input}`)
     setInput("");
   }
-
+  
   return (
     <div className="search-field-container">
       <form className='search-form'>
