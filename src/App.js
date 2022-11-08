@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Header from "./Header";
 import SearchResults from "./SearchResults";
-import Search from "./Search";
 import Footer from "./Footer";
 
 const App = () => {
@@ -14,8 +13,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/search" element={< SearchResults/>} />
-        <Route path="/search/:title" element={<Search />} />
+        <Route path="/search/:title" element={< SearchResults />} />
       </Routes>
 
       <Footer />

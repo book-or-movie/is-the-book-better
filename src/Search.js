@@ -1,56 +1,33 @@
 import React from 'react'
-import axios from "axios";
-import { useParams} from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useNavigate} from "react-router-dom";
+import { useState} from "react";
 
 const Search = () => {
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
 
-  const [movieData, setMovieData] = useState({});
-  const [bookData, setBookData] = useState({});
+  //Function to handle the controlled input
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  }
 
-  const urlParamsValue = useParams();
-
-  useEffect(() => {
-    axios({
-      url: `https://api.themoviedb.org/3/search/movie/`,
-      params: {
-        api_key: "47da9671165d0b0ea4978d79aec9edce",
-        query: urlParamsValue.title,
-      }
-    }).then((response) => {
-      const newMovieState = response.data.results.filter((movie) => {
-        return movie.title.toLowerCase() === urlParamsValue.title.toLowerCase()
-      })
-      console.log(newMovieState)
-    }, [])
-  })
-
-  useEffect(() => {
-    axios({
-      url: "https://www.googleapis.com/books/v1/volumes?",
-      params: {
-        q: urlParamsValue.title,
-        key: "AIzaSyDCEbB_2pq9kGnJgq1tJ8Z0gzoR5LgN9gQ",
-        language: "en",
-      }
-    })
-      .then((response) => {
-        const newBookState = response.data.items.filter((book) => {
-          return book.volumeInfo.title.toLowerCase() === urlParamsValue.title.toLowerCase()
-        })
-        console.log(newBookState)
-      })
-  }, [])
-
-
-
-
-
+  //Function to handle the form submit
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/search/${input}`)
+    setInput("");
+  }
 
   return (
-    <section className="Search">
-      <div>Search</div>
-    </section>
+    <div className="search-field-container">
+      <form className='search-form'>
+        <label htmlFor="searchField">
+          <span className="sr-only">Search for a book</span>
+        </label>
+        <input type="text" id="searchField" name="bookTitle" placeholder="Search a book title" required onChange={handleInput} value={input} className="search-input"></input>
+        <button onClick={handleFormSubmit} className="search-submit-btn">Search</button>
+      </form>
+    </div>
   )
 
 }
