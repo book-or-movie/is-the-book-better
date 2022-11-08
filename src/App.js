@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Header from "./Header";
 import SearchResults from "./SearchResults";
-import Search from "./Search";
 import Footer from "./Footer";
 
 const App = () => {
