@@ -4,6 +4,11 @@ function Book(props) {
 
 ///On click re route to /search/movie/:movieObj
 
+
+
+
+
+
     return (
         <div className="bookDisplay">
             <h3>Please select a book</h3>
@@ -13,6 +18,7 @@ function Book(props) {
                     return (
                         <li key={bookObj.id}>
                             <img src={bookObj.volumeInfo.imageLinks.thumbnail} alt={bookObj.title} />
+                            <button onClick={()=>{props.setShowMovie(!props.showMovie)}}></button>
                         </li>
                     )
                 })}
