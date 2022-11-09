@@ -13,8 +13,8 @@ function Results({ bookArray, setBook, movieArray, setMovie }) {
     //Filter array for movies w/o poster
     //Filter array for movies bookObj.volumeInfo.imageLinks is undefined
 
-    console.log(bookArray);
-    console.log(movieArray);
+    // console.log(bookArray);
+    // console.log(movieArray);
 
     return (
 
