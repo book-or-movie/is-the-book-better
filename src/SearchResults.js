@@ -61,7 +61,6 @@ const SearchResults = () => {
 
   return (
     <section className="searchResults">
-      <Search />
       <Results bookArray={bookData} setBook={selectedBook} movieArray={movieData} setMovie={selectedMovie} />
     </section>
   )
