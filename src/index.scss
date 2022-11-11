@@ -4,6 +4,7 @@
 @use "./sass/setup";
 @use "./sass/global-styles";
 @use "./sass/typography";
+@use "./sass/variables" as *;
 
 //Components
 @use "./sass/header";
