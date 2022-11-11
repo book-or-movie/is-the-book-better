@@ -10,7 +10,7 @@ const SearchResults = () => {
   const urlParamsValue = useParams()
   const searchQuery = urlParamsValue.title
   const API_KEY_BOOKS = process.env.BOOKS_API_KEY
-  const API_KEY_MOVIE = process.env.MOVIE_API_KEY
+  // const API_KEY_MOVIE = process.env.MOVIE_API_KEY
 
   useEffect(() => {
     axios({
@@ -50,7 +50,7 @@ const SearchResults = () => {
     }).catch((error => {
       console.log('error!');
     }))
-  }, [searchQuery])
+  }, [API_KEY_BOOKS, searchQuery])
 
 
 
