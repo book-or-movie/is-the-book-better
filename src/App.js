@@ -1,4 +1,5 @@
 //Packages installed so far:  Sass, Axios, react-router-dom
+import Header from "./Header";
 
 import { Routes, Route } from "react-router-dom";
 import Main from "./Main";
@@ -10,6 +11,8 @@ const App = () => {
   return (
     <div className="App">
       <Header />
+
+
 
       <Routes>
         <Route path="/" element={<Main />} />
