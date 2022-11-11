@@ -3,8 +3,10 @@ import React from 'react'
 function Movie(props) {
 
 
-    const handleClick = (() => {
-        props.setShowResult(!props.showResults)
+    const handleClick = ((movieSelection) => {
+        props.setMovie(movieSelection);
+        props.setShowMovie(false);
+        props.setShowComparison(true);
     })
 
 
@@ -17,7 +19,7 @@ function Movie(props) {
                     return (
                         <li key={movieObj.id}>
                             <img src={`https://image.tmdb.org/t/p/w200/` + movieObj.poster_path} alt={movieObj.title} />
-                            <button onClick={handleClick}>Select This Movie</button>
+                            <button onClick={()=>{handleClick(movieObj)}}>Select This Movie</button>
                         </li>
                     )
                 })}

@@ -3,13 +3,10 @@ import { useState } from 'react'
 
 function Book(props) {
 
-    ///On click re route to /search/movie/:movieObj
-    const [selectedBook, setSelectedBook] = useState()
-
     const handleClick = ((bookSelection) => {
-        props.setShowMovie(!props.showMovie)
-        setSelectedBook(bookSelection)
-        console.log('book selected is:', bookSelection.volumeInfo.title);
+        props.setShowMovie(!props.showMovie);
+        props.setShowBook(false)
+        props.setBook(bookSelection)
     })
 
     
@@ -23,8 +20,14 @@ function Book(props) {
                 {props.bookArray.map((bookObj) => {
                     return (
                         <li key={bookObj.id}>
-                            <img src={bookObj.volumeInfo.imageLinks.thumbnail} alt={bookObj.title} />
+                            <img src={bookObj.volumeInfo.imageLinks.thumbnail} alt={bookObj.volumeInfo.title} />
                             <button onClick={() => {handleClick(bookObj)} }>Select This Book</button>
+
+                            {/*Image, Author(s), Title, subtitle, Rating, Date  */}
+
+                            <p className="book-author">{bookObj.volumeInfo.title}</p>
+                            <p className="book-title"></p>
+
                         </li>
                     )
                 })}

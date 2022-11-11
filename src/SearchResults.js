@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from './Search';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -42,6 +41,9 @@ const SearchResults = () => {
       },
     }).then((response) => {
       const newBookState = response.data.items.filter((book) => {
+        if(!book.volumeInfo.averageRating){
+          book.volumeInfo.averageRating = 0
+        }
         return book.volumeInfo.title.toLowerCase() === searchQuery.toLowerCase()
       })
       setBookData(newBookState)
@@ -50,16 +52,11 @@ const SearchResults = () => {
     }))
   }, [searchQuery])
 
-  const selectedMovie = (movie) => {
-    setMovieData(movie)
-  }
-  const selectedBook = (book) => {
-    setBookData(book)
-  }
+
 
   return (
     <section className="searchResults">
-      <Results bookArray={bookData} setBook={selectedBook} movieArray={movieData} setMovie={selectedMovie} />
+      <Results bookArray={bookData} movieArray={movieData} />
     </section>
   )
 }
