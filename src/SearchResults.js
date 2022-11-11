@@ -19,7 +19,6 @@ const SearchResults = () => {
       params: {
         api_key: "372d3f4f5198c56ab56f69a5848e02d3",
         query: searchQuery,
-
       },
     })
       .then((response) => {
@@ -54,7 +53,6 @@ const SearchResults = () => {
   const selectedMovie = (movie) => {
     setMovieData(movie)
   }
-
   const selectedBook = (book) => {
     setBookData(book)
   }
