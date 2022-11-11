@@ -5,6 +5,7 @@ import Header from "./Header";
 import SearchResults from "./SearchResults";
 import Footer from "./Footer";
 
+
 const App = () => {
   return (
     <div className="App">
@@ -15,6 +16,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/search/:title" element={< SearchResults />} />
+        {/* <Route path="/search/bookchoice" element={<Book/>}/> */}
+        {/* <Route path="/search/moviechoice" element={<Movie/>}/> */}
+        {/* <Route path="/search/results" element={<Results/>}/> */}
+
       </Routes>
 
       <Footer />
