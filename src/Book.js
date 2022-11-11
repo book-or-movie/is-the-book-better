@@ -17,7 +17,7 @@ function Book(props) {
                 props.bookArray.length === 0
                     ? <>
                         <h3>No books have been found</h3>
-                        <p>Try a different query with the exact title</p>
+                        <p>Try a different query</p>
                     </>
                     : <h3>Please select a book</h3>
             }
