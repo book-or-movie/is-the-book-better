@@ -33,9 +33,6 @@ function Results({ bookArray, movieArray }) {
         
     }, [bookArray.length, movieArray.length]);
 
-    console.log(bookArray);
-    console.log(movieArray);
-
     //click to go to home page
     const handleNewSearchClick = () => {
         navigate(`/`);
