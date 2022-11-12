@@ -1,7 +1,3 @@
-// THIS IS THE LATEST VERSION AS OF :20PM NOV. 12 2022
-
-
-import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +23,7 @@ function Results({ bookArray, movieArray, showMessage }) {
         } else {
             setShowBook(false);
         }
-        
+
     }, [bookArray.length, movieArray.length]);
 
     //click to go to home page

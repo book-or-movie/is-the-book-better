@@ -1,14 +1,13 @@
-import React from 'react'
 import Search from './Search'
 
 const Main = () => {
   return (
     <main>
       <p>Intro</p>
-      <Search/>
+      <Search />
     </main>
-   
+
   )
 }
 
-export default Main
+export default Main;

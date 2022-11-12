@@ -1,6 +1,5 @@
-import React from 'react'
-import { useNavigate} from "react-router-dom";
-import { useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Search = () => {
   const [input, setInput] = useState("");
@@ -17,7 +16,7 @@ const Search = () => {
     navigate(`/search/${input}`)
     setInput("");
   }
-  
+
   return (
     <div className="search-field-container">
       <form className='search-form'>
