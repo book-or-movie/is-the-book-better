@@ -32,35 +32,40 @@ function Results({ bookArray, movieArray, showMessage }) {
     };
 
     return (
-        <div className="result-container">
-            <button onClick={handleNewSearchClick} className="new-search-btn">New Search</button>
-            {bookArray.length === 0 && showMessage ? (
-                <p>No books were found......</p>
-            ) : movieArray.length === 0 && showMessage ? (
-                <p>No movies were found......</p>
-            ) : null}
+      <section className="comparision">
+        <div className="wrapper">
 
-            {showBook ? (
-                <Book
-                    bookArray={bookArray}
-                    setBook={setSelectedBook}
-                    setShowMovie={setShowMovie}
-                    setShowBook={setShowBook}
-                />
-            ) : null}
+          <div className="result-container">
+              <button onClick={handleNewSearchClick} className="new-search-btn">New Search</button>
+              {bookArray.length === 0 && showMessage ? (
+                  <p>No books were found......</p>
+              ) : movieArray.length === 0 && showMessage ? (
+                  <p>No movies were found......</p>
+              ) : null}
 
-            {showMovie ? (
-                <Movie
-                    movieArray={movieArray}
-                    setMovie={setSelectedMovie}
-                    setShowMovie={setShowMovie}
-                    setShowComparison={setShowComparison}
-                />
-            ) : null}
-            {showComparison ? (
-                <Comparison selectedBook={selectedBook} selectedMovie={selectedMovie} />
-            ) : null}
-        </div>
+              {showBook ? (
+                  <Book
+                      bookArray={bookArray}
+                      setBook={setSelectedBook}
+                      setShowMovie={setShowMovie}
+                      setShowBook={setShowBook}
+                  />
+              ) : null}
+
+              {showMovie ? (
+                  <Movie
+                      movieArray={movieArray}
+                      setMovie={setSelectedMovie}
+                      setShowMovie={setShowMovie}
+                      setShowComparison={setShowComparison}
+                  />
+              ) : null}
+              {showComparison ? (
+                  <Comparison selectedBook={selectedBook} selectedMovie={selectedMovie} />
+              ) : null}
+          </div> {/* results-container div end */}
+        </div> {/* wrapper div end */}
+      </section>
     );
 }
 

@@ -7,8 +7,8 @@ function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
     })
 
     return (
-        <div className="movie-display">
-
+        <section className="movie-display">
+          <div className="wrapper">
             <h2>Please select a movie</h2>
             <ul className="movie-pick">
                 {movieArray.map((movieObj) => {
@@ -23,7 +23,8 @@ function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
                     )
                 })}
             </ul>
-        </div>
+          </div> {/* div wrapper end */}
+        </section>
     )
 }
 

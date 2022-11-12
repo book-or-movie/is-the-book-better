@@ -1,4 +1,4 @@
-// THIS IS THE LATEST VERSION AS OF 6:20PM NOV. 12 2022
+// THIS IS THE LATEST VERSION AS OF 6:15PM NOV. 12 2022
 
 import { Routes, Route } from "react-router-dom";
 import Main from "./Main";
@@ -9,6 +9,7 @@ import Footer from "./Footer";
 const App = () => {
   return (
     <div className="App">
+
       <Header />
 
       <Routes>
