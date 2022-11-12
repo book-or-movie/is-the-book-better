@@ -13,15 +13,7 @@ function Book(props) {
 
     return (
         <div className="bookDisplay">
-            {
-                props.bookArray.length === 0
-                    ? <>
-                        <h3>No books have been found</h3>
-                        <p>Try a different query</p>
-                    </>
-                    : <h3>Please select a book</h3>
-            }
-
+            
             <ul className="bookPick">
                 {props.bookArray.map((bookObj) => {
                     return (
