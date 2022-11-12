@@ -1,30 +1,29 @@
-import React from 'react'
-
-function Book(props) {
+function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
 
     const handleClick = ((bookSelection) => {
-        props.setShowMovie(!props.showMovie);
-        props.setShowBook(false)
-        props.setBook(bookSelection)
+        setShowMovie(true);
+        setShowBook(false);
+        setBook(bookSelection);
     })
 
 
 
-
     return (
-        <div className="bookDisplay">
-            
-            <ul className="bookPick">
-                {props.bookArray.map((bookObj) => {
+        <div className="book-display">
+            <h2>Please Select a Book</h2>
+            <ul className="book-pick">
+                {bookArray.map((bookObj) => {
                     return (
                         <li key={bookObj.id}>
-                            <img src={bookObj.volumeInfo.imageLinks.thumbnail} alt={bookObj.volumeInfo.title} />
-                            <button onClick={() => { handleClick(bookObj) }}>Select This Book</button>
+                           
+                            <button onClick={() => { handleClick(bookObj) }}> <img src={bookObj.volumeInfo.imageLinks.thumbnail} alt={bookObj.volumeInfo.title} /></button>
 
-                            {/*Image, Author(s), Title, subtitle, Rating, Date  */}
+                            {/*Image, Author(s), Title, Rating, Date  */}
 
-                            <p className="book-author">{bookObj.volumeInfo.title}</p>
-                            <p className="book-title"></p>
+                            <p className="book-title">{bookObj.volumeInfo.title}</p>
+                            <p className="book-author">Author(s):    {bookObj.volumeInfo.authors}</p>
+                            <p className="book-rating">Rating: {bookObj.volumeInfo.averageRating*2}</p>
+                            <p className="book-release">Release Date: {bookObj.volumeInfo.publishedDate}</p>
 
                         </li>
                     )

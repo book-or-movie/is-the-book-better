@@ -1,7 +1,4 @@
-//Filter array for movies w/o poster
-//Filter array for movies bookObj.volumeInfo.imageLinks is undefined
-
-// THIS IS THE LATEST VERSION AS OF 8:20PM NOV. 11 2022
+// THIS IS THE LATEST VERSION AS OF :20PM NOV. 12 2022
 
 
 import React from "react";
@@ -12,7 +9,7 @@ import Book from "./Book";
 import Movie from "./Movie";
 import Comparison from "./Comparison";
 
-function Results({ bookArray, movieArray }) {
+function Results({ bookArray, movieArray, showMessage }) {
     const navigate = useNavigate();
     //States to control screens
     const [showBook, setShowBook] = useState(true);
@@ -38,27 +35,19 @@ function Results({ bookArray, movieArray }) {
         navigate(`/`);
     };
 
-    //Set book and movie
-    const setBook = (book) => {
-        setSelectedBook(book);
-    };
-    const setMovie = (movie) => {
-        setSelectedMovie(movie);
-    };
-
     return (
-        <div className="results">
-            <button onClick={handleNewSearchClick}>New Search</button>
-            {bookArray.length === 0 ? (
+        <div className="result-container">
+            <button onClick={handleNewSearchClick} className="new-search-btn">New Search</button>
+            {bookArray.length === 0 && showMessage ? (
                 <p>No books were found......</p>
-            ) : movieArray.length === 0 ? (
+            ) : movieArray.length === 0 && showMessage ? (
                 <p>No movies were found......</p>
             ) : null}
 
             {showBook ? (
                 <Book
                     bookArray={bookArray}
-                    setBook={setBook}
+                    setBook={setSelectedBook}
                     setShowMovie={setShowMovie}
                     setShowBook={setShowBook}
                 />
@@ -67,7 +56,7 @@ function Results({ bookArray, movieArray }) {
             {showMovie ? (
                 <Movie
                     movieArray={movieArray}
-                    setMovie={setMovie}
+                    setMovie={setSelectedMovie}
                     setShowMovie={setShowMovie}
                     setShowComparison={setShowComparison}
                 />

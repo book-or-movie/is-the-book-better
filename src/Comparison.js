@@ -8,10 +8,10 @@ const Comparison = ({selectedBook, selectedMovie}) => {
           <div className="decision">
             {
                 bookRating > movieRating
-                    ? <h2>The Book is better</h2>
+                    ? <h3>The Book is better</h3>
                     : bookRating < movieRating
-                        ? <h2>The Movie is better</h2>
-                        : <h2>It's a tie</h2>
+                        ? <h3>The Movie is better</h3>
+                        : <h3>It's a tie</h3>
             }
           </div>
           
