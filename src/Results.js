@@ -1,5 +1,9 @@
 //Filter array for movies w/o poster
 //Filter array for movies bookObj.volumeInfo.imageLinks is undefined
+
+// THIS IS THE LATEST VERSION AS OF 8:20PM NOV. 11 2022
+
+
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +23,7 @@ function Results({ bookArray, movieArray }) {
     const [selectedBook, setSelectedBook] = useState();
     const [selectedMovie, setSelectedMovie] = useState();
 
+    //useEffect checks if search returns any movies or books. If none for both, hide the books and movies. Code continues to return area which will render either "no books" or "no movies"
     useEffect(() => {
         if (bookArray.length > 0 && movieArray.length > 0) {
             setShowBook(true);
