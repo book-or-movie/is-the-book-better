@@ -1,5 +1,4 @@
 function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
-
     const handleClick = ((movieSelection) => {
         setMovie(movieSelection);
         setShowMovie(false);

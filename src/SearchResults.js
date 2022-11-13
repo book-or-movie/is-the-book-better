@@ -66,12 +66,19 @@ const SearchResults = () => {
             book.volumeInfo.title.toLowerCase() === searchQuery.toLowerCase()
         )
         .map((book) => {
-          if (!book.volumeInfo.averageRating) {
-            book.volumeInfo.averageRating = 0;
-          }
           if (!book.volumeInfo.imageLinks) {
             book.volumeInfo.imageLinks = {};
             book.volumeInfo.imageLinks.thumbnail = noBookPic;
+          }
+          if (!book.volumeInfo.authors) {
+            book.volumeInfo.authors = [];
+            book.volumeInfo.authors[0] = "Not listed";
+          }
+          if (!book.volumeInfo.averageRating) {
+            book.volumeInfo.averageRating = 0;
+          }
+          if (!book.volumeInfo.publishedDate) {
+            book.volumeInfo.publishedDate = "Not listed";
           }
           return book;
         });
@@ -86,6 +93,12 @@ const SearchResults = () => {
           } else {
             movie.poster_path =
               `https://image.tmdb.org/t/p/w200/` + movie.poster_path;
+          }
+          if (!movie.release_date) {
+            movie.release_date = "Not listed";
+          }
+          if (!movie.vote_average) {
+            movie.vote_average = 0;
           }
           return movie;
         });
