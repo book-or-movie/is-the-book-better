@@ -14,7 +14,7 @@ const SearchResults = () => {
   const [message2, setMessage2] = useState("")
   const [modal, setModal] = useState(false)
 
- 
+
 
   const urlParamsValue = useParams();
   const searchQuery = urlParamsValue.title;
@@ -25,7 +25,7 @@ const SearchResults = () => {
     async function bookPromise() {
       try {
         const bookObject = await axios({
-          url: "https://www.googleapis.com/books/v1/volumes2/",
+          url: "https://www.googleapis.com/books/v1/volumes/",
           params: {
             q: searchQuery,
             key: API_KEY_BOOKS,
@@ -34,7 +34,7 @@ const SearchResults = () => {
         });
         return bookObject;
       } catch (error) {
-        setMessage1("The Google Books API is currently unavailable. Please try again later.")  
+        setMessage1("The Google Books API is currently unavailable. Please try again later.")
         setModal(true)
         return error;
       }
@@ -43,7 +43,7 @@ const SearchResults = () => {
     async function moviePromise() {
       try {
         const movieData = await axios({
-          url: `https://api.themoviedb.org/3/search/movie2/`,
+          url: `https://api.themoviedb.org/3/search/movie/`,
           params: {
             api_key: "372d3f4f5198c56ab56f69a5848e02d3",
             query: searchQuery,
@@ -94,10 +94,10 @@ const SearchResults = () => {
         showMessage={showMessage}
       />
       <Modal modal={modal}
-             setModal={setModal}
-             message1={message1}
-             message2={message2}
-             />
+        setModal={setModal}
+        message1={message1}
+        message2={message2}
+      />
     </section>
   );
 };
