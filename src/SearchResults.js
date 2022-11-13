@@ -21,25 +21,40 @@ const SearchResults = () => {
 
   useEffect(() => {
     async function bookPromise() {
-      const bookObject = await axios({
-        url: "https://www.googleapis.com/books/v1/volumes/",
-        params: {
-          q: searchQuery,
-          key: API_KEY_BOOKS,
-          language: "en",
-        },
-      })
-      return bookObject
+      try {
+        const bookObject = await axios({
+          url: "https://www.googleapis.com/books/v1/volumes/",
+          params: {
+            q: searchQuery,
+            key: API_KEY_BOOKS,
+            language: "en",
+          },
+        })
+        return bookObject
+      }
+      catch (error) {
+
+        alert("book not working")
+        return error
+      }
     }
+
+
     async function moviePromise() {
-      const movieData = await axios({
-        url: `https://api.themoviedb.org/3/search/movie/`,
-        params: {
-          api_key: "372d3f4f5198c56ab56f69a5848e02d3",
-          query: searchQuery,
-        },
-      })
-      return movieData
+      try {
+        const movieData = await axios({
+          url: `https://api.themoviedb.org/3/search/movie/`,
+          params: {
+            api_key: "372d3f4f5198c56ab56f69a5848e02d3",
+            query: searchQuery,
+          },
+        })
+        return movieData
+      }
+      catch (error) {
+        console.log("not working movie")
+        return error
+      }
     }
 
     Promise.all([bookPromise(), moviePromise()])
