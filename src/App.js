@@ -22,5 +22,4 @@ const App = () => {
     </div>
   );
 }
-git 
 export default App;
