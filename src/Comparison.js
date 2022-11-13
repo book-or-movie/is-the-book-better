@@ -21,7 +21,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
           <div className="book-image-container">
             <img src={selectedBook.volumeInfo.imageLinks.thumbnail} alt={selectedBook.volumeInfo.title} />
             <p>Book Title: {selectedBook.volumeInfo.title}</p>
-            <p>Author: {selectedBook.volumeInfo.authors}</p>
+            <p>Author(s): {selectedBook.volumeInfo.authors.join(", ")}</p>
             <p>Average Reader Rating: {bookRating}/10</p>
             <p>Published Date: {selectedBook.volumeInfo.publishedDate}</p>
           </div>

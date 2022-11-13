@@ -17,7 +17,7 @@ function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
                                 <button onClick={() => { handleClick(bookObj) }} className="select-book-btn"> <img src={bookObj.volumeInfo.imageLinks.thumbnail} alt={bookObj.volumeInfo.title} /></button>
 
                                 <p className="book-title">{bookObj.volumeInfo.title}</p>
-                                <p className="book-author">Author(s): {bookObj.volumeInfo.authors}</p>
+                                <p className="book-author">Author(s): {bookObj.volumeInfo.authors.join(", ")}</p>
                                 <p className="book-rating">Rating: {bookObj.volumeInfo.averageRating * 2}</p>
                                 <p className="book-release">Release Date: {bookObj.volumeInfo.publishedDate}</p>
 

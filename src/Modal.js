@@ -1,7 +1,6 @@
 
 const Modal = ({modal, setModal, message1, message2}) => {
- console.log("this is message1:", message1) 
- console.log("this is message2:", message2)
+
   return (
     <div className={`modal-screen ${modal ? "active-modal" : ""}`}>
       <div className="warning-container">

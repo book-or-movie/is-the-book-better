@@ -10,11 +10,9 @@ const SearchResults = () => {
   const [movieData, setMovieData] = useState([]);
   const [bookData, setBookData] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
-  const [message1, setMessage1] = useState("")
-  const [message2, setMessage2] = useState("")
-  const [modal, setModal] = useState(false)
-
-
+  const [message1, setMessage1] = useState("");
+  const [message2, setMessage2] = useState("");
+  const [modal, setModal] = useState(false);
 
   const urlParamsValue = useParams();
   const searchQuery = urlParamsValue.title;
@@ -34,8 +32,10 @@ const SearchResults = () => {
         });
         return bookObject;
       } catch (error) {
-        setMessage1("The Google Books API is currently unavailable. Please try again later.")
-        setModal(true)
+        setMessage1(
+          "The Google Books API is currently unavailable. Please try again later."
+        );
+        setModal(true);
         return error;
       }
     }
@@ -51,36 +51,44 @@ const SearchResults = () => {
         });
         return movieData;
       } catch (error) {
-        setMessage2("The Movie Database API is currently unavailable. Please try again later.")
-        setModal(true)
+        setMessage2(
+          "The Movie Database API is currently unavailable. Please try again later."
+        );
+        setModal(true);
         return error;
       }
     }
 
     Promise.all([bookPromise(), moviePromise()]).then((values) => {
-      const newBookState = values[0].data.items.filter((book) => {
-        if (!book.volumeInfo.averageRating) {
-          book.volumeInfo.averageRating = 0;
-        }
-        if (!book.volumeInfo.imageLinks) {
-          book.volumeInfo.imageLinks = {};
-          book.volumeInfo.imageLinks.thumbnail = noBookPic;
-        }
-
-        return (
-          book.volumeInfo.title.toLowerCase() === searchQuery.toLowerCase()
-        );
-      });
+      const newBookState = values[0].data.items
+        .filter(
+          (book) =>
+            book.volumeInfo.title.toLowerCase() === searchQuery.toLowerCase()
+        )
+        .map((book) => {
+          if (!book.volumeInfo.averageRating) {
+            book.volumeInfo.averageRating = 0;
+          }
+          if (!book.volumeInfo.imageLinks) {
+            book.volumeInfo.imageLinks = {};
+            book.volumeInfo.imageLinks.thumbnail = noBookPic;
+          }
+          return book;
+        });
       setBookData(newBookState);
-      const newMovieState = values[1].data.results.filter((movie) => {
-        if (!movie.poster_path) {
-          movie.poster_path = noMoviePic;
-        } else {
-          movie.poster_path =
-            `https://image.tmdb.org/t/p/w200/` + movie.poster_path;
-        }
-        return movie.title.toLowerCase() === searchQuery.toLowerCase();
-      });
+      const newMovieState = values[1].data.results
+        .filter(
+          (movie) => movie.title.toLowerCase() === searchQuery.toLowerCase()
+        )
+        .map((movie) => {
+          if (!movie.poster_path) {
+            movie.poster_path = noMoviePic;
+          } else {
+            movie.poster_path =
+              `https://image.tmdb.org/t/p/w200/` + movie.poster_path;
+          }
+          return movie;
+        });
       setMovieData(newMovieState);
       setShowMessage(true);
     });
@@ -93,7 +101,8 @@ const SearchResults = () => {
         movieArray={movieData}
         showMessage={showMessage}
       />
-      <Modal modal={modal}
+      <Modal
+        modal={modal}
         setModal={setModal}
         message1={message1}
         message2={message2}
