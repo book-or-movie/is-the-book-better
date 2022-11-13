@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Results from "./Results";
+import Modal from "./Modal";
 import noBookPic from "./assets/noBook.jpg";
 import noMoviePic from "./assets/noMovie.jpg";
 
@@ -9,6 +10,12 @@ const SearchResults = () => {
   const [movieData, setMovieData] = useState([]);
   const [bookData, setBookData] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
+  const [message1, setMessage1] = useState("")
+  const [message2, setMessage2] = useState("")
+  const [modal, setModal] = useState(false)
+
+ 
+
   const urlParamsValue = useParams();
   const searchQuery = urlParamsValue.title;
   const API_KEY_BOOKS = process.env.BOOKS_API_KEY;
@@ -18,7 +25,7 @@ const SearchResults = () => {
     async function bookPromise() {
       try {
         const bookObject = await axios({
-          url: "https://www.googleapis.com/books/v1/volumes/",
+          url: "https://www.googleapis.com/books/v1/volumes2/",
           params: {
             q: searchQuery,
             key: API_KEY_BOOKS,
@@ -27,7 +34,8 @@ const SearchResults = () => {
         });
         return bookObject;
       } catch (error) {
-        alert("book not working");
+        setMessage1("The Google Books API is currently unavailable. Please try again later.")  
+        setModal(true)
         return error;
       }
     }
@@ -43,7 +51,8 @@ const SearchResults = () => {
         });
         return movieData;
       } catch (error) {
-        alert("movie not working");
+        setMessage2("The Movie Database API is currently unavailable. Please try again later.")
+        setModal(true)
         return error;
       }
     }
@@ -84,6 +93,11 @@ const SearchResults = () => {
         movieArray={movieData}
         showMessage={showMessage}
       />
+      <Modal modal={modal}
+             setModal={setModal}
+             message1={message1}
+             message2={message2}
+             />
     </section>
   );
 };
