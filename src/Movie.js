@@ -1,29 +1,31 @@
-import React from 'react'
+function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
 
-function Movie(props) {
-
-
-    const handleClick = (() => {
-        props.setShowResult(!props.showResults)
+    const handleClick = ((movieSelection) => {
+        setMovie(movieSelection);
+        setShowMovie(false);
+        setShowComparison(true);
     })
 
-
     return (
-        <div className="movieDisplay">
-
-            <h3>Please select a movie</h3>
-            <ul className="moviePick">
-                {props.movieArray.map((movieObj) => {
+        <section className="movie-display">
+          <div className="wrapper">
+            <h2>Please select a movie</h2>
+            <ul className="movie-pick">
+                {movieArray.map((movieObj) => {
                     return (
                         <li key={movieObj.id}>
-                            <img src={`https://image.tmdb.org/t/p/w200/` + movieObj.poster_path} alt={movieObj.title} />
-                            <button onClick={handleClick}>Select This Movie</button>
+
+                            <p>Movie Title: {movieObj.title}</p>
+                            <p>Released: {movieObj.release_date}</p>
+                            <p>Average Viewer Rating: {movieObj.vote_average}/10</p>
+                            <button onClick={() => { handleClick(movieObj) }}><img src={`https://image.tmdb.org/t/p/w200/` + movieObj.poster_path} alt={movieObj.title} /></button>
                         </li>
                     )
                 })}
             </ul>
-        </div>
+          </div> {/* div wrapper end */}
+        </section>
     )
 }
 
-export default Movie
+export default Movie;

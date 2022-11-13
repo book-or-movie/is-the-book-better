@@ -1,12 +1,12 @@
-import React from 'react'
-
 const Footer = () => {
   return (
 
     <footer>
-      <div>Footer</div> 
+      <div className="wrapper">
+        <p>Created at Juno College of Technology  &copy; 2022</p>
+      </div>
     </footer>
-  
+
   )
 }
 
