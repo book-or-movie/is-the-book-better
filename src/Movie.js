@@ -14,11 +14,11 @@ function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
                     {movieArray.map((movieObj) => {
                         return (
                             <li key={movieObj.id}>
+                                <button onClick={() => { handleClick(movieObj) }} className="select-movie-btn"><img src={movieObj.poster_path} alt={movieObj.title} /></button>
 
                                 <p>Movie Title: {movieObj.title}</p>
                                 <p>Released: {movieObj.release_date}</p>
                                 <p>Average Viewer Rating: {movieObj.vote_average}/10</p>
-                                <button onClick={() => { handleClick(movieObj) }}><img src={movieObj.poster_path} alt={movieObj.title} /></button>
                             </li>
                         )
                     })}
