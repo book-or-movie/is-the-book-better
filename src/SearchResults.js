@@ -59,6 +59,8 @@ const SearchResults = () => {
         const newMovieState = values[1].data.results.filter((movie) => {
           if (!movie.poster_path) {
             movie.poster_path = noMoviePic
+          } else {
+            movie.poster_path = `https://image.tmdb.org/t/p/w200/` + movie.poster_path
           }
           return movie.title.toLowerCase() === searchQuery.toLowerCase()
         })
@@ -67,7 +69,7 @@ const SearchResults = () => {
 
       })
 
-  }, [])
+  }, [API_KEY_BOOKS, searchQuery])
 
   return (
     <section className="searchResults">

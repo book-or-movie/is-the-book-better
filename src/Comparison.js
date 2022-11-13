@@ -30,7 +30,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
         {/* the below code assigns movie-won class only if movie rating is superior pr tie*/}
         <div className={`movie-container ${bookRating <= movieRating ? "movie-won" : ""}`}>
           <div className="movie-image-container">
-            <img src={`https://image.tmdb.org/t/p/w200/` + selectedMovie.poster_path} alt={selectedMovie.title} />
+            <img src={selectedMovie.poster_path} alt={selectedMovie.title} />
             <p>Movie Title: {selectedMovie.title}</p>
             <p>Released: {selectedMovie.release_date}</p>
             <p>Average Viewer Rating: {movieRating}/10</p>
