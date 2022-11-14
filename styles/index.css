@@ -338,3 +338,31 @@ header h1 {
 .gif-container > img {
   display: block;
 }
+
+.decision {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid blue;
+}
+
+.outcome {
+  animation-name: fade;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

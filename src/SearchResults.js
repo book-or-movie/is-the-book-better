@@ -89,6 +89,9 @@ const SearchResults = () => {
           if (!book.volumeInfo.description) {
             book.volumeInfo.description = "No description available."
           }
+          if (!book.volumeInfo.subtitle) {
+            book.volumeInfo.subtitle = ""
+          }
           return book;
         });
       setBookData(newBookState);
