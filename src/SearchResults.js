@@ -108,7 +108,7 @@ const SearchResults = () => {
   }, [API_KEY_BOOKS, searchQuery]);
 
   return (
-    <section className="searchResults">
+    <section className="search-results">
       <Results
         bookArray={bookData}
         movieArray={movieData}
