@@ -32,7 +32,7 @@ function Results({ bookArray, movieArray, showMessage }) {
     };
 
     return (
-        <section className="comparision">
+        <section className="comparison">
             <div className="wrapper">
 
                 <div className="result-container">
