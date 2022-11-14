@@ -11,7 +11,7 @@ function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
                 <h2>Please select a movie</h2>
                 <ul className="movie-pick">
                     {movieArray.map((movieObj) => {
-                      console.log(movieObj)
+    
                         return (
                             <li key={movieObj.id}>
                                 <button onClick={() => { handleClick(movieObj) }} className="select-movie-btn"><img src={movieObj.poster_path} alt={movieObj.title} /></button>
