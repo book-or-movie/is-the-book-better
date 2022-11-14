@@ -1,36 +1,49 @@
-import React from 'react'
-import { useState } from 'react'
-
-function Book(props) {
-
-    ///On click re route to /search/movie/:movieObj
-    const [selectedBook, setSelectedBook] = useState()
-
-    const handleClick = ((bookSelection) => {
-        props.setShowMovie(!props.showMovie)
-        setSelectedBook(bookSelection)
-        console.log('book selected is:', bookSelection.volumeInfo.title);
-    })
-
-    
-
+function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
+    const handleClick = (bookSelection) => {
+        setShowMovie(true);
+        setShowBook(false);
+        setBook(bookSelection);
+    };
 
     return (
-        <div className="bookDisplay">
-            <h3>Please select a book</h3>
+        <section className="book-display">
+            <div className="wrapper">
+                <h2>Please Select a Book</h2>
+                <ul className="book-pick">
+                    {bookArray.map((bookObj) => {
+                        return (
+                            <li key={bookObj.id}>
+                                <button
+                                    onClick={() => {
+                                        handleClick(bookObj);
+                                    }}
+                                    className="select-book-btn"
+                                >
+                                    {" "}
+                                    <img
+                                        src={bookObj.volumeInfo.imageLinks.thumbnail}
+                                        alt={bookObj.volumeInfo.title}
+                                    />
+                                </button>
 
-            <ul className="bookPick">
-                {props.bookArray.map((bookObj) => {
-                    return (
-                        <li key={bookObj.id}>
-                            <img src={bookObj.volumeInfo.imageLinks.thumbnail} alt={bookObj.title} />
-                            <button onClick={() => {handleClick(bookObj)} }>Select This Book</button>
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
-    )
+                                <p className="book-title">{bookObj.volumeInfo.title}</p>
+                                <p className="book-author">
+                                    Author(s): {bookObj.volumeInfo.authors.join(", ")}
+                                </p>
+                                <p className="book-rating">
+                                    Rating: {bookObj.volumeInfo.averageRating * 2}
+                                </p>
+                                <p className="book-release">
+                                    Release Date: {bookObj.volumeInfo.publishedDate}
+                                </p>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>{" "}
+            {/* wrapper div end */}
+        </section>
+    );
 }
 
-export default Book
+export default Book;

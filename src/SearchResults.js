@@ -1,69 +1,127 @@
-import React from 'react';
-import Search from './Search';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import Results from './Results';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import Results from "./Results";
+import Modal from "./Modal";
+import noBookPic from "./assets/noBook.jpg";
+import noMoviePic from "./assets/noMovie.jpg";
 
 const SearchResults = () => {
-  const [movieData, setMovieData] = useState([])
-  const [bookData, setBookData] = useState([])
-  const urlParamsValue = useParams()
-  const searchQuery = urlParamsValue.title
-  const API_KEY_BOOKS = process.env.BOOKS_API_KEY
-  const API_KEY_MOVIE = process.env.MOVIE_API_KEY
+  const [movieData, setMovieData] = useState([]);
+  const [bookData, setBookData] = useState([]);
+  const [showMessage, setShowMessage] = useState(false);
+  const [message1, setMessage1] = useState("");
+  const [message2, setMessage2] = useState("");
+  const [modal, setModal] = useState(false);
+
+  const urlParamsValue = useParams();
+  const searchQuery = urlParamsValue.title;
+  const API_KEY_BOOKS = process.env.BOOKS_API_KEY;
+  // const API_KEY_MOVIE = process.env.MOVIE_API_KEY
 
   useEffect(() => {
-    axios({
-      url: `https://api.themoviedb.org/3/search/movie/`,
-      params: {
-        api_key: "372d3f4f5198c56ab56f69a5848e02d3",
-        query: searchQuery,
+    async function bookPromise() {
+      try {
+        const bookObject = await axios({
+          url: "https://www.googleapis.com/books/v1/volumes/",
+          params: {
+            q: searchQuery,
+            key: API_KEY_BOOKS,
+            language: "en",
+          },
+        });
+        return bookObject;
+      } catch (error) {
+        setMessage1(
+          "The Google Books API is currently unavailable. Please try again later."
+        );
+        setModal(true);
+        return error;
+      }
+    }
 
-      },
-    })
-      .then((response) => {
-        const newMovieState = response.data.results.filter((movie) => {
-          return movie.title.toLowerCase() === searchQuery.toLowerCase()
-        })
-        setMovieData(newMovieState)
-      })
-      .catch((error) => {
-        console.log("error!")
-      })
-  }, [searchQuery])
+    async function moviePromise() {
+      try {
+        const movieData = await axios({
+          url: `https://api.themoviedb.org/3/search/movie/`,
+          params: {
+            api_key: "372d3f4f5198c56ab56f69a5848e02d3",
+            query: searchQuery,
+          },
+        });
+        return movieData;
+      } catch (error) {
+        setMessage2(
+          "The Movie Database API is currently unavailable. Please try again later."
+        );
+        setModal(true);
+        return error;
+      }
+    }
 
-  useEffect(() => {
-    axios({
-      url: "https://www.googleapis.com/books/v1/volumes/",
-      params: {
-        q: searchQuery,
-        key: API_KEY_BOOKS,
-        language: "en",
-      },
-    }).then((response) => {
-      const newBookState = response.data.items.filter((book) => {
-        return book.volumeInfo.title.toLowerCase() === searchQuery.toLowerCase()
-      })
-      setBookData(newBookState)
-    }).catch((error => {
-      console.log('error!');
-    }))
-  }, [searchQuery])
-
-  const selectedMovie = (movie) => {
-    setMovieData(movie)
-  }
-
-  const selectedBook = (book) => {
-    setBookData(book)
-  }
+    Promise.all([bookPromise(), moviePromise()]).then((values) => {
+      const newBookState = values[0].data.items
+        .filter(
+          (book) =>
+            book.volumeInfo.title.toLowerCase() === searchQuery.toLowerCase()
+        )
+        .map((book) => {
+          if (!book.volumeInfo.imageLinks) {
+            book.volumeInfo.imageLinks = {};
+            book.volumeInfo.imageLinks.thumbnail = noBookPic;
+          }
+          if (!book.volumeInfo.authors) {
+            book.volumeInfo.authors = [];
+            book.volumeInfo.authors[0] = "Not listed";
+          }
+          if (!book.volumeInfo.averageRating) {
+            book.volumeInfo.averageRating = 0;
+          }
+          if (!book.volumeInfo.publishedDate) {
+            book.volumeInfo.publishedDate = "Not listed";
+          }
+          return book;
+        });
+      setBookData(newBookState);
+      const newMovieState = values[1].data.results
+        .filter(
+          (movie) => movie.title.toLowerCase() === searchQuery.toLowerCase()
+        )
+        .map((movie) => {
+          if (!movie.poster_path) {
+            movie.poster_path = noMoviePic;
+          } else {
+            movie.poster_path =
+              `https://image.tmdb.org/t/p/w200/` + movie.poster_path;
+          }
+          if (!movie.release_date) {
+            movie.release_date = "Not listed";
+          }
+          if (!movie.vote_average) {
+            movie.vote_average = 0;
+          }
+          return movie;
+        });
+      setMovieData(newMovieState);
+      setShowMessage(true);
+    });
+  }, [API_KEY_BOOKS, searchQuery]);
 
   return (
     <section className="searchResults">
-      <Results bookArray={bookData} setBook={selectedBook} movieArray={movieData} setMovie={selectedMovie} />
+      <Results
+        bookArray={bookData}
+        movieArray={movieData}
+        showMessage={showMessage}
+      />
+      <Modal
+        modal={modal}
+        setModal={setModal}
+        message1={message1}
+        message2={message2}
+      />
     </section>
-  )
-}
+  );
+};
 
-export default SearchResults
+export default SearchResults;
