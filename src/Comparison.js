@@ -14,7 +14,9 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
           ) : (
             <h3 className="outcome">It's a tie</h3>
           )}
-        </div>
+			  </div>
+			  <div className="comparison-container">
+				  
 				{/* the below code assigns book-won class only if book rating is superior or tie*/}
 				<div className={`book-container ${bookRating >= movieRating ? "book-won" : ""} `}>
 					<div className="book-image-container">
@@ -39,6 +41,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
 						<p>Average Viewer Rating: {movieRating}/10</p>
 					</div>
 				</div>
+			  </div>
 			</div>{" "}
 			{/* wrapper div end */}
 		</section>
