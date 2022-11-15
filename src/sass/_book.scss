@@ -1,11 +1,43 @@
 @use "./variables" as *;
-@use "./global-styles";
-@use "./typography";
+@use "./mixins" as *;
+
+.book-display {
+  margin-bottom: 7vh;
+}
 
 .book-pick {
     display: flex;
     justify-content: space-evenly;
-    .select-book-btn {
+    flex-wrap:wrap;
+    border: 2px solid blue;
     
+
+    li {
+      width: 320px;
+      height: 800px;
+      border: 2px solid red; 
+      overflow: hidden;
+      display:flex; 
+      flex-direction: column;
+      padding: 1em;
     }
+
+    img {
+      width: 200px;
+      height: 300px;
+    }
+}
+
+
+
+.book-description {
+  display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+  	overflow: hidden;
+}
+
+.more-info {
+  margin-top: auto;
 }
