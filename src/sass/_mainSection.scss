@@ -1,14 +1,22 @@
 @use "variables" as *;
+@use "./mixins" as *;
+
 
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     background-image: url(../assets/book-g04e8d3fcc_1920.jpg);
     background-color: transparent;
     background-position: center;
-    width: 85%;
-    height: 70vh;
+    height: calc(100vh - (7vh + 6vh));
     margin: auto;
-    margin-top: 5%;
-    padding-top: 10vh;
+    
+    @include breakpoint(largeScreen){
+        background-image: none;
+    }
 
     .search-form {
         margin-top: 50px;
@@ -36,21 +44,15 @@ main {
     }
 }
 
-.video-wrapper {
-    width: 100%;
-    height: 95vh;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-.mainvideo {
-    width: 100vw;
-    position: relative;
-    object-fit: cover;
-    filter: brightness(82%)
+.main-video {
+    display: none;
+    
+     @include breakpoint(largeScreen){
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        object-fit: cover;
+    }
 }
