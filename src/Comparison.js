@@ -6,11 +6,11 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
       <div className="wrapper">
         <div className="decision">
           {bookRating > movieRating ? (
-            <h3>The Book is better</h3>
+            <h3 className="outcome">The Book is better</h3>
           ) : bookRating < movieRating ? (
-            <h3>The Movie is better</h3>
+            <h3 className="outcome">The Movie is better</h3>
           ) : (
-            <h3>It's a tie</h3>
+            <h3 className="outcome">It's a tie</h3>
           )}
         </div>
 

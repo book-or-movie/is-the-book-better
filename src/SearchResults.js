@@ -5,6 +5,7 @@ import Results from "./Results";
 import Modal from "./Modal";
 import noBookPic from "./assets/noBook.jpg";
 import noMoviePic from "./assets/noMovie.jpg";
+import Loader from "./Loader";
 
 const SearchResults = () => {
   const [movieData, setMovieData] = useState([]);
@@ -13,6 +14,7 @@ const SearchResults = () => {
   const [message1, setMessage1] = useState("");
   const [message2, setMessage2] = useState("");
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const urlParamsValue = useParams();
   const searchQuery = urlParamsValue.title;
@@ -20,6 +22,7 @@ const SearchResults = () => {
   // const API_KEY_MOVIE = process.env.MOVIE_API_KEY
 
   useEffect(() => {
+    setLoading(true);
     async function bookPromise() {
       try {
         const bookObject = await axios({
@@ -32,6 +35,7 @@ const SearchResults = () => {
         });
         return bookObject;
       } catch (error) {
+        setTimeout(()=>setLoading(false), 2000);
         setMessage1(
           "The Google Books API is currently unavailable. Please try again later."
         );
@@ -51,6 +55,7 @@ const SearchResults = () => {
         });
         return movieData;
       } catch (error) {
+        setTimeout(()=>setLoading(false), 2000);
         setMessage2(
           "The Movie Database API is currently unavailable. Please try again later."
         );
@@ -60,6 +65,7 @@ const SearchResults = () => {
     }
 
     Promise.all([bookPromise(), moviePromise()]).then((values) => {
+      setTimeout(()=>setLoading(false), 2000);
       const newBookState = values[0].data.items
         .filter(
           (book) =>
@@ -79,6 +85,12 @@ const SearchResults = () => {
           }
           if (!book.volumeInfo.publishedDate) {
             book.volumeInfo.publishedDate = "Not listed";
+          }
+          if (!book.volumeInfo.description) {
+            book.volumeInfo.description = "No description available."
+          }
+          if (!book.volumeInfo.subtitle) {
+            book.volumeInfo.subtitle = ""
           }
           return book;
         });
@@ -100,12 +112,22 @@ const SearchResults = () => {
           if (!movie.vote_average) {
             movie.vote_average = 0;
           }
+          if (!movie.overview) {
+            movie.overview = "No synopsis available."
+          }
           return movie;
         });
       setMovieData(newMovieState);
       setShowMessage(true);
     });
   }, [API_KEY_BOOKS, searchQuery]);
+
+
+
+
+  if (loading) {
+    return <Loader />
+  } 
 
   return (
     <section className="search-results">
