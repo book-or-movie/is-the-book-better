@@ -11,13 +11,15 @@ function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
                 <h2>Please select a movie</h2>
                 <ul className="movie-pick">
                     {movieArray.map((movieObj) => {
+    
                         return (
                             <li key={movieObj.id}>
                                 <button onClick={() => { handleClick(movieObj) }} className="select-movie-btn"><img src={movieObj.poster_path} alt={movieObj.title} /></button>
 
-                                <p>Movie Title: {movieObj.title}</p>
-                                <p>Released: {movieObj.release_date}</p>
-                                <p>Average Viewer Rating: {movieObj.vote_average}/10</p>
+                                <p className="movie-title">Movie Title: {movieObj.title}</p>
+                                <p className="release-date">Released: {movieObj.release_date}</p>
+                                <p className="average-rating">Average Viewer Rating: {movieObj.vote_average}/10</p>
+                                <p className="synopsis">Synopsis: {movieObj.overview}</p>
                             </li>
                         )
                     })}
