@@ -1,0 +1,11 @@
+@use "./variables" as *;
+@use "./global-styles";
+@use "./typography";
+
+.book-pick {
+    display: flex;
+    justify-content: space-evenly;
+    .select-book-btn {
+    
+    }
+}

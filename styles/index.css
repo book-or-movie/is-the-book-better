@@ -33,7 +33,8 @@ figure {
 }
 
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
@@ -51,7 +52,8 @@ a {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 b,
@@ -166,7 +168,8 @@ fieldset {
 }
 
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   color: inherit;
   display: table;
   max-width: 100%;
@@ -185,7 +188,8 @@ textarea {
 
 [type=checkbox],
 [type=radio] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 }
 
@@ -231,7 +235,6 @@ template {
 }
 
 html {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -240,7 +243,6 @@ html {
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
 
@@ -252,21 +254,119 @@ html {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  clip-path: inset(100%);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
+body {
+  background: #f4e6e8;
+}
+
+.wrapper {
+  max-width: 1450px;
+  width: 90%;
+  margin: 0 auto;
+}
+
 header {
-  background-color: red;
+  background: red;
 }
 
 main {
-  background-color: purple;
+  background: purple;
 }
 
 footer {
-  background-color: blue;
+  background: blue;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  position: relative;
+  height: 30vh;
+  background-color: #f4e6e8;
+}
+header h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  font-size: 4rem;
+  font-family: "Maitree", serif;
+  font-weight: bold;
+  color: #5da9c2;
+  text-transform: uppercase;
+  text-shadow: #ace8cd 2px 2px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.logo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+  text-align: center;
+}
+
+.modal-screen.active-modal {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.warning-container {
+  background-color: cadetblue;
+  width: 300px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header {
