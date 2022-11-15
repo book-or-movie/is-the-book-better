@@ -1,0 +1,8 @@
+@use "./variables" as *; 
+
+.movie-pick {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
