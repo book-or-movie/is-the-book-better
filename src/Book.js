@@ -11,6 +11,7 @@ function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
                 <h2>Please Select a Book</h2>
                 <ul className="book-pick">
                     {bookArray.map((bookObj) => {
+                     
                         return (
                             <li key={bookObj.id}>
                                 <button
@@ -26,7 +27,7 @@ function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
                                     />
                                 </button>
 
-                                <p className="book-title">{bookObj.volumeInfo.title}</p>
+                                <p className="book-title">{bookObj.volumeInfo.title} {bookObj.volumeInfo.subtitle ==="" ? "" : "-" } {bookObj.volumeInfo.subtitle}</p>
                                 <p className="book-author">
                                     Author(s): {bookObj.volumeInfo.authors.join(", ")}
                                 </p>
@@ -35,6 +36,9 @@ function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
                                 </p>
                                 <p className="book-release">
                                     Release Date: {bookObj.volumeInfo.publishedDate}
+                                </p>
+                                <p className="book-description">
+                                  Summary: {bookObj.volumeInfo.description}
                                 </p>
                             </li>
                         );
