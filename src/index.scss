@@ -1,15 +1,24 @@
 //Add your partials here (partials are inside sass folder)
 
 //Setup
+@use "./sass/variables" as *;
 @use "./sass/setup";
 @use "./sass/global-styles";
 @use "./sass/typography";
-@use "./sass/variables" as *;
 
 //Components
 @use "./sass/header";
 @use "./sass/footer";
 @use "./sass/mainSection";
 @use "./sass/modal";
+<<<<<<< HEAD
 @use "./sass/loader";
 @use "./sass/comparison";
+=======
+>>>>>>> 909863bd96d8b681ae786d3f516c539d42492d05
+@use "./sass/search";
+@use "./sass/book";
+@use "./sass/movie";
+@use "./sass/loader";
+@use "./sass/comparison";
+

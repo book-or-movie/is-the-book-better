@@ -1,13 +1,47 @@
 //Setup your global styles here (Margins for elements, ul disc-styles, images, wrappers etc. )
+@use "./variables" as *;
+
+body {
+  background: $tertiaryColor;
+}
+
+.wrapper {
+  max-width: 1450px;
+  width: 90%;
+  margin: 0 auto;
+}
 
 header {
-  background-color: red; 
+  // background: red; 
 }
 
 main {
-  background-color: purple;
+  // background: purple;
 }
 
 footer {
-  background-color: blue;
+  // background: blue;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+button {
+  margin: 25px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: none;
 }
