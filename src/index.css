@@ -256,25 +256,138 @@ html {
 }
 
 header {
+  background-color: red;
+}
+
+main {
+  background-color: purple;
+}
+
+footer {
+  background-color: blue;
+}
+
+header {
   position: relative;
-  height: 70vh;
-  border: 5px solid red;
+  height: 7vh;
+  background-color: transparent;
+  border-bottom: 2px solid #ace8cd;
 }
 header h1 {
   display: flex;
   justify-content: end;
-  align-items: baseline;
-  font-size: 6rem;
+  font-size: 2.6rem;
   font-family: "Maitree", serif;
   font-weight: bold;
+  text-transform: full-width;
   color: #5da9c2;
-  text-transform: uppercase;
-  text-shadow: #ace8cd 2px 5px;
-  padding: 20px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  letter-spacing: -1.1rem;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
 }
 
 .logo {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+footer {
+  background-color: transparent;
+  font-family: "Maitree", serif;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #5da9c2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6vh;
+  border-top: 2px solid #ace8cd;
+}
+
+main {
+  background-image: url(../assets/book-g04e8d3fcc_1920.jpg);
+  background-color: transparent;
+  background-position: center;
+  width: 85%;
+  height: 70vh;
+  margin: auto;
+  margin-top: 5%;
+  padding-top: 10vh;
+}
+main .search-form {
+  margin-top: 50px;
+  margin-left: 350px;
+}
+main .search-submit-btn {
+  width: 150PX;
+  height: 40px;
+}
+main #search-field {
+  width: 500px;
+  height: 40px;
+}
+main p {
+  width: 65%;
+  color: white;
+  font-family: "Maitree", serif;
+  font-size: 1.4rem;
+  background-color: rgba(255, 255, 255, 0.356);
+  text-shadow: 1px 1px black;
+  margin: auto;
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 95vh;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.mainvideo {
+  width: 100vw;
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(82%);
+}
+
+.modal-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: opacity 0.2s ease-in;
+  text-align: center;
+}
+
+.modal-screen.active-modal {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.warning-container {
+  background-color: cadetblue;
+  width: 300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=index.css.map */
