@@ -3,23 +3,27 @@
 
 .book-display {
   margin-bottom: 7vh;
+  h2 {
+    text-align: center;
+  }
 }
 
 .book-pick {
     display: flex;
     justify-content: space-evenly;
     flex-wrap:wrap;
-    border: 2px solid blue;
-    
 
     li {
       width: 320px;
       height: 800px;
-      border: 2px solid red; 
       overflow: hidden;
       display:flex; 
       flex-direction: column;
+      background-color: $primaryColor;
+      border-radius: 6px;
+      box-shadow: 2px 2px 2px black;
       padding: 1em;
+      margin-bottom: 40px;
     }
 
     img {
