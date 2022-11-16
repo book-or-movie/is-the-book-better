@@ -7,9 +7,7 @@ const Header = () => {
       <div className="wrapper header-container">
         <h1>Is the book better?</h1>
       </div>
-      <div className='header-search'>
-        <Search />
-      </div>
+      <Search />
     </header>
 
   )
