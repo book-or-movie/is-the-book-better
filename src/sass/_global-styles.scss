@@ -21,6 +21,16 @@ li {
 
 a {
   text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
+  &:focus {
+    color: inherit;
+  }
 }
 
 img {

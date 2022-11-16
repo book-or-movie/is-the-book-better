@@ -6,11 +6,11 @@
 @include font-face(Maitree, maitree-regular, 400);
 @include font-face(Maitree, maitree-bold, 700);
 
-
-///
+html {font-size: 62.5%;}
 
 body {
   font-family: Maitree;
+  font-size: 1.6rem;
 }
 
 h1 {

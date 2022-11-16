@@ -278,6 +278,16 @@ li {
 a {
   text-decoration: none;
 }
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: white;
+  cursor: pointer;
+}
+a:focus {
+  color: inherit;
+}
 
 img {
   width: 100%;
@@ -292,6 +302,25 @@ button {
   border: none;
   cursor: pointer;
   background: none;
+}
+
+@font-face {
+  font-family: Maitree;
+  src: url("../assets/fonts/maitree-regular.woff2") format("woff2"), url("../assets/fonts/maitree-regular.woff") format("woff"), url("../assets/fonts/maitree-regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: Maitree;
+  src: url("../assets/fonts/maitree-bold.woff2") format("woff2"), url("../assets/fonts/maitree-bold.woff") format("woff"), url("../assets/fonts/maitree-bold.ttf") format("truetype");
+  font-weight: 700;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Maitree;
+  font-size: 1.6rem;
 }
 
 h1 {
@@ -457,37 +486,107 @@ main #search-field {
 .book-display {
   margin-bottom: 7vh;
 }
+.book-display h2 {
+  text-align: center;
+}
 
 .book-pick {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
-  border: 2px solid blue;
 }
 .book-pick li {
-  width: 320px;
-  height: 800px;
-  border: 2px solid red;
+  width: 100%;
+  height: 750px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  background-color: #5da9c2;
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px black;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+@media only screen and (min-width: 768px) {
+  .book-pick li {
+    width: calc(50% - 10px);
+    margin: 5px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .book-pick li {
+    width: calc(33.3333333333% - 10px);
+    margin: 5px;
+  }
+}
+@media only screen and (min-width: 1330px) {
+  .book-pick li {
+    width: calc(25% - 10px);
+    margin: 5px;
+  }
 }
 .book-pick img {
   width: 200px;
   height: 300px;
+  text-align: center;
 }
 
 .book-description {
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
+.select-book-btn {
+  margin: 0;
+  padding: 0;
+}
+
 .more-info {
   margin-top: auto;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 10px;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  font-size: 2rem;
+  transition: transform 0.6s ease-in-out;
+}
+.more-info a:hover, .more-info a:focus, .more-info a:visited, .more-info a:link {
+  color: black;
+}
+
+.more-info:active {
+  animation: push 0.5s ease-in-out;
+}
+
+@keyframes push {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.book-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.book-author, .book-rating, .book-release, .book-description {
+  margin: 5px auto;
+  text-align: left;
+  width: 100%;
 }
 
 .movie-pick {

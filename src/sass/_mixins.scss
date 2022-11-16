@@ -50,4 +50,9 @@
             @content;
         }
     }
+    @else if $point ==xxlargeScreen {
+      @media only screen and (min-width: 1330px) {
+          @content;
+      }
+  }
 }

@@ -11,7 +11,7 @@ function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
                 <h2>Please Select a Book</h2>
                 <ul className="book-pick">
                     {bookArray.map((bookObj) => {
-
+             
                         return (
                             <li key={bookObj.id}>
                                 <button
