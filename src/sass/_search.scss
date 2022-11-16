@@ -6,11 +6,12 @@
     align-items: center;
 
     .search-input {
-        width: 400px;
+        width: 25vw;
         height: 35px;
         outline: none;
         border: none;
         border-radius: 5px;
+        text-align: center;
     }
 
     ::placeholder {
