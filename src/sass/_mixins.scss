@@ -14,17 +14,6 @@
     }
 }
 
-
-//Media queries for mobile first
-
-// Usage:
-//@include breakpoint(largeScreen) {
-//   div {
-//      font-size: 2rem;
-//      line-height: 1.4;
-//   }
-//}
-
 @mixin breakpoint($point) {
     
     @if $point ==smallScreen {

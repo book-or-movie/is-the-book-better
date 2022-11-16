@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
+//MODAL RUNS ON SEARCHRESULTS.JS IF EITHER API CANNOT BE CALLED 
+
 const Modal = ({modal, setModal, message1, message2}) => {
   
   const navigate = useNavigate();
 
+  //function allows user to return to home page once they click "OK" on modal
+  //error messages are passed down as props from searchResults.js
 
   const returnHome = () => {
     setModal(false)
@@ -22,4 +26,4 @@ const Modal = ({modal, setModal, message1, message2}) => {
   )
 }
 
-export default Modal
+export default Modal;
