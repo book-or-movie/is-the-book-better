@@ -1,20 +1,23 @@
 const Comparison = ({ selectedBook, selectedMovie }) => {
-	const bookRating = selectedBook.volumeInfo.averageRating * 2;
-	const movieRating = selectedMovie.vote_average;
-	return (
-		<section className="comparison">
+
+  const bookRating = selectedBook.volumeInfo.averageRating * 2;
+  const movieRating = selectedMovie.vote_average;
+  return (
+    <section className="comparison">
 
 
-			<div className="wrapper">
-				<div className="decision">
-					{bookRating > movieRating ? (
-						<h3 className="outcome">The Book is better</h3>
-					) : bookRating < movieRating ? (
-						<h3 className="outcome">The Movie is better</h3>
-					) : (
-						<h3 className="outcome">It's a tie</h3>
-					)}
-				</div>
+      <div className="wrapper">
+        <div className="decision">
+          {bookRating > movieRating ? (
+            <h3 className="outcome">The Book is better</h3>
+          ) : bookRating < movieRating ? (
+            <h3 className="outcome">The Movie is better</h3>
+          ) : (
+            <h3 className="outcome">It's a tie</h3>
+          )}
+			  </div>
+        
+			  <div className="comparison-container">				  
 				{/* the below code assigns book-won class only if book rating is superior or tie*/}
 				<div className={`book-container ${bookRating >= movieRating ? "book-won" : ""} `}>
 					<div className="book-image-container">
@@ -39,6 +42,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
 						<p>Average Viewer Rating: {movieRating}/10</p>
 					</div>
 				</div>
+			  </div>
 			</div>{" "}
 			{/* wrapper div end */}
 		</section>
