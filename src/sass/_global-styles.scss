@@ -11,16 +11,8 @@ body {
   margin: 0 auto;
 }
 
-header {
-  // background: red; 
-}
-
-main {
-  // background: purple;
-}
-
-footer {
-  // background: blue;
+ul { 
+  padding: 0;
 }
 
 li {
@@ -29,6 +21,16 @@ li {
 
 a {
   text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
+  &:focus {
+    color: inherit;
+  }
 }
 
 img {

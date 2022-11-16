@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <main>
 
-      <video class="main-video" loop playsInline autoPlay muted>
+      <video className="main-video" loop playsInline autoPlay muted>
         <source src={video} type="video/mp4" alt="A woman with a Chanel purse walks towards a lighthouse in the middle of a frozen lake." />
       </video>
 
