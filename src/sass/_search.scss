@@ -8,6 +8,9 @@
     .search-input {
         width: 400px;
         height: 35px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
     }
 
     ::placeholder {
@@ -16,7 +19,9 @@
     }
 
     .search-submit-btn {
-        border: 1px solid $primaryColor;
+        background: $primaryColor;
+        border-radius: 5px;
+        color: white;
         padding: 7px 50px;
     }
 }
