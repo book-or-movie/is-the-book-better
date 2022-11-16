@@ -8,6 +8,7 @@
         padding: 50px;
         display: flex;
         justify-content: center;
+        text-transform: uppercase;
         .outcome {
             background: white;
             position: relative;
@@ -66,6 +67,10 @@
     }
 }
 
+.book-lost , .movie-lost {
+    filter: grayscale(100%)blur(1px) brightness(90%) opacity(95%);
+    scale: 0.9;
+}
 
 // code for animation from codepen.io "https://codepen.io/Huhtamaki/pen/GPzwPY"
 
@@ -81,6 +86,7 @@
 	width: calc(100% + 4px);
 	height: calc(100% + 4px);
 	z-index: -1;
+    filter:none;
 	animation: steam 30s linear infinite;
 }
 
