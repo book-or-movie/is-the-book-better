@@ -61,11 +61,16 @@
   overflow: hidden;
 }
 
-
 .select-book-btn,
 .select-movie-btn {
+
   margin: 0;
   padding: 0;
+  border-radius: 2px;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    scale: 1.05;
+  }
 }
 
 .more-info {
