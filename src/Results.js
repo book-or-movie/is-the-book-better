@@ -27,20 +27,20 @@ function Results({ bookArray, movieArray, showMessage }) {
     }, [bookArray.length, movieArray.length]);
 
     //click to go to home page
-    const handleNewSearchClick = () => {
-        navigate(`/`);
-    };
+    // const handleNewSearchClick = () => {
+    //     navigate(`/`);
+    // };
 
     return (
         <section className="comparison">
             <div className="wrapper">
 
                 <div className="result-container">
-                    <button onClick={handleNewSearchClick} className="new-search-btn">New Search</button>
+                    {/* <button onClick={handleNewSearchClick} className="new-search-btn">New Search</button> */}
                     {bookArray.length === 0 && showMessage ? (
-                        <p>No books were found......</p>
+                        <h6>No books were found, Please try another Title......</h6>
                     ) : movieArray.length === 0 && showMessage ? (
-                        <p>No movies were found......</p>
+                        <h6>No movies were found, Please try another Title.......</h6>
                     ) : null}
 
                     {showBook ? (
