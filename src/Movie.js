@@ -1,10 +1,13 @@
-function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
-    const handleClick = ((movieSelection) => {
+const Movie = ({ movieArray, setMovie, setShowMovie, setShowComparison }) => {
+    
+//ONCE USER CLICKS ON A MOVIE, THIS FUNCTION CALLS THE SETFUNCTIONS OF STATES IN PARENT COMPONENT RESULTS.JS.
+  const handleClick = ((movieSelection) => {
         setMovie(movieSelection);
         setShowMovie(false);
         setShowComparison(true);
     })
 
+//THIS COMPONENT RETURNS A LIST OF MOVIES FROM SEARCH TERMS TO BE SELECTED BY USER 
     return (
         <section className="movie-display">
             <div className="wrapper">
@@ -21,8 +24,8 @@ function Movie({ movieArray, setMovie, setShowMovie, setShowComparison }) {
                                 <p className="average-rating">Average Viewer Rating: {movieObj.vote_average}/10</p>
                                 <p className="synopsis">Synopsis: {movieObj.overview}</p>
                             </li>
-                        )
-                    })}
+                        ) // second return brackets end
+                    })}{/* movie.array brackets end */}
                 </ul>
             </div> {/* div wrapper end */}
         </section>
