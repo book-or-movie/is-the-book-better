@@ -1,13 +1,21 @@
+//libraries
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+
+//components
 import Results from "./Results";
 import Modal from "./Modal";
+
+//assets
 import noBookPic from "./assets/noBook.jpg";
 import noMoviePic from "./assets/noMovie.jpg";
 import Loader from "./Loader";
 
 const SearchResults = () => {
+
+//STATES FOR HANDLING DATA RETRIEVED FROM APIS
+
   const [movieData, setMovieData] = useState([]);
   const [bookData, setBookData] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
@@ -19,8 +27,9 @@ const SearchResults = () => {
   const urlParamsValue = useParams();
   const searchQuery = urlParamsValue.title;
   const API_KEY_BOOKS = process.env.BOOKS_API_KEY;
-  // const API_KEY_MOVIE = process.env.MOVIE_API_KEY
 
+
+  //USE EFFECT FOR MOUNTING GOOGLE BOOKS AND MOVIE DB API DATA
   useEffect(() => {
     setLoading(true);
     async function bookPromise() {
@@ -62,9 +71,12 @@ const SearchResults = () => {
         setModal(true);
         return error;
       }
-    }
+    } // end of use effect
 
     Promise.all([bookPromise(), moviePromise()]).then((values) => {
+
+      //code below leaves 2000ms for loading screen, then filters movies and books that match the query string. Movie and book titles are converted to lowercase comparision. Additional if/else statements ensure object properties with missing information are given placeholders for display. 
+
       setTimeout(()=>setLoading(false), 2000);
       const newBookState = values[0].data.items
         .filter(
@@ -94,6 +106,7 @@ const SearchResults = () => {
           }
           return book;
         });
+
       setBookData(newBookState);
       const newMovieState = values[1].data.results
         .filter(
@@ -120,11 +133,10 @@ const SearchResults = () => {
       setMovieData(newMovieState);
       setShowMessage(true);
     });
-  }, [API_KEY_BOOKS, searchQuery]);
+  }, [API_KEY_BOOKS, searchQuery]); //end of use effect
 
 
-
-
+//LOADER COMPONENT WHICH RUNS FOR 2000MS ON PAGE LOAD 
   if (loading) {
     return <Loader />
   } 
@@ -141,7 +153,7 @@ const SearchResults = () => {
         setModal={setModal}
         message1={message1}
         message2={message2}
-      />
+      /> {/* modal displays in the event either API cannot be called */}
     </section>
   );
 };

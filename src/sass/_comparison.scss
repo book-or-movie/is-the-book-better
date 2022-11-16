@@ -4,13 +4,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .decision {
         padding: 50px;
+        display: flex;
+        justify-content: center;
+
+        .outcome {
+            background: white;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 250px;
+            border-radius: 5px;
+        }
     }
     .comparison-container {
-    display: flex;
-    justify-content: center;
-    gap: 75px;
+        display: flex;
+        justify-content: center;
+        gap: 75px;
+
         .book-container {
             display: flex;
             flex-direction: column;
@@ -22,15 +37,18 @@
             border-radius: 5px;
             padding-top: 25px;
             position: relative;
+
             .book-image-container {
                 position: absolute;
                 top: 40px;
             }
+
             .book-info-container {
                 position: absolute;
                 bottom: 50px;
             }
         }
+
         .movie-container {
             display: flex;
             flex-direction: column;
@@ -42,10 +60,12 @@
             border-radius: 5px;
             padding-top: 25px;
             position: relative;
+
             .movie-image-container {
                 position: absolute;
                 top: 40px;
             }
+            
             .movie-info-container {
                 position: absolute;
                 bottom: 75px;
@@ -55,21 +75,19 @@
 }
 
 
-// code for animation from codepen.io "https://codepen.io/Huhtamaki/pen/GPzwPY"
-
-.book-won:before, .book-won:after, .movie-won:before, .movie-won:after  {
-	content: ''; 
+.book-won:before, .book-won:after, .movie-won:before, .movie-won:after, .outcome:before, .outcome:after  {
+    content: ''; 
     border-radius: 5px;
-	position: absolute;
-	left: -2px;
-	top: -2px;
-	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-		#0000ff, #00ff00,#ffff00, #ff0000);
-	background-size: 400%;
-	width: calc(100% + 4px);
-	height: calc(100% + 4px);
-	z-index: -1;
-	animation: steam 30s linear infinite;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+      #0000ff, #00ff00,#ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 30s linear infinite;
 }
 
 @keyframes steam {
@@ -84,6 +102,6 @@
 	}
 }
 
-.book-won:after, .movie-won:after {
+.book-won:after, .movie-won:after, .outcome:after {
 	filter: blur(50px);
 }

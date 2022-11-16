@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "./mixins" as *;
 
 //This popup modal appears if there is an error with either API. 
 
@@ -31,4 +32,38 @@
   flex-direction: column; 
   justify-content: center;
   align-items: center;
+  border-radius: 6px;
+
+  @include breakpoint(mediumScreen) {
+    width: 320px;
+  }
+
+  @include breakpoint(largeScreen) {
+    width: 500px;
+    padding: 20px;
+  }
+}
+
+.modal-button {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  padding: 5px 10px;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  font-size: 2rem;
+  transition: transform 0.6s ease-in-out;
+
+  a:hover,
+  a:focus,
+  a:visited,
+  a:link {
+    color: black;
+  }
+}
+
+.modal-button:active {
+  animation: push 0.5s ease-in-out;
 }

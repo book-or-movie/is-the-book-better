@@ -1,10 +1,13 @@
-function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
+const Book = ({ bookArray, setBook, setShowMovie, setShowBook }) => {
+
+//ONCE USER CLICKS ON A BOOK, THIS FUNCTION CALLS THE SETFUNCTIONS OF STATES IN PARENT COMPONENT RESULTS.JS. 
     const handleClick = (bookSelection) => {
         setShowMovie(true);
         setShowBook(false);
         setBook(bookSelection);
     };
-
+  
+//THIS COMPONENT RETURNS A LIST OF BOOKS FROM SEARCH TERMS TO BE SELECTED BY USER 
     return (
         <section className="book-display">
             <div className="wrapper">
@@ -18,13 +21,10 @@ function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
                                     onClick={() => {
                                         handleClick(bookObj);
                                     }}
-                                    className="select-book-btn"
-                                >
-                                    {" "}
+                                    className="select-book-btn">
                                     <img
                                         src={bookObj.volumeInfo.imageLinks.thumbnail}
-                                        alt={bookObj.volumeInfo.title}
-                                    />
+                                        alt={bookObj.volumeInfo.title}/>
                                 </button>
 
                                 <p className="book-title">{bookObj.volumeInfo.title} {bookObj.volumeInfo.subtitle === "" ? "" : "-"} {bookObj.volumeInfo.subtitle}</p>
@@ -44,15 +44,13 @@ function Book({ bookArray, setBook, setShowMovie, setShowBook }) {
                                 <button className="more-info">
                                     <a href={bookObj.volumeInfo.previewLink} target="_blank" rel="noreferrer">Full Info</a>
                                 </button>
-
                             </li>
-                        );
-                    })}
+                        ); //second return brackets end
+                    })} {/* bookArray.map brackets end */}
                 </ul>
-            </div>{" "}
-            {/* wrapper div end */}
+            </div>{/* wrapper div end */}
         </section>
-    );
+    ); //first return brackets end
 }
 
 export default Book;
