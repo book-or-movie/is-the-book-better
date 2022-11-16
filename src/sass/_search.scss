@@ -4,14 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     .search-input {
         width: 400px;
         height: 35px;
     }
+
     ::placeholder {
         text-align: center;
         color: black;
     }
+
     .search-submit-btn {
         border: 1px solid $primaryColor;
         padding: 7px 50px;
