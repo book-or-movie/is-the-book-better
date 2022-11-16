@@ -8,15 +8,33 @@ header {
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    height: 10vh;
+    height: 150px;
     background-color: transparent;
     border-bottom: 2px solid $secondaryColor;
     flex-direction: column;
   }
 
   @include breakpoint(mediumScreen) {
-    height: 7vh;
+    // height: 7vh;
     flex-direction: row;
   }
+}
+
+// /10vh large screenpixels //992 medium //768
+
+.header-container {
+  width: 100%; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; 
+  border: 2px solid purple;
+
+  @include breakpoint(largeScreen) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
 
 }
