@@ -10,9 +10,7 @@ const Header = () => {
           <h1>Is the book better?</h1>
         </Link>
       </div>
-      <div className='header-search'>
-        <Search />
-      </div>
+      <Search />
     </header>
 
   )

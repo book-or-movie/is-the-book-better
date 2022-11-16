@@ -1,33 +1,22 @@
 @use "variables" as *;
+@use "./mixins" as *;
 
 
 header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  height: 7vh;
-  background-color: transparent;
-  border-bottom: 2px solid $secondaryColor;
-  // .header-container{
+  @include breakpoint(smallScreen) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 10vh;
+    background-color: transparent;
+    border-bottom: 2px solid $secondaryColor;
+    flex-direction: column;
+  }
 
-  // }
+  @include breakpoint(mediumScreen) {
+    height: 7vh;
+    flex-direction: row;
+  }
 
 }
-
-.search-field {
-  position: absolute;
-  top: -16px;
-  right: 1px;
-}
-
-
-
-// .header-container {
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-//   z-index: 100;
-// }
