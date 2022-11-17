@@ -26,7 +26,7 @@ const SearchResults = () => {
 
   const urlParamsValue = useParams();
   const searchQuery = urlParamsValue.title;
-  const API_KEY_BOOKS = process.env.BOOKS_API_KEY;
+  // const API_KEY_BOOKS = process.env.BOOKS_API_KEY;
 
 
   //USE EFFECT FOR MOUNTING GOOGLE BOOKS AND MOVIE DB API DATA
@@ -35,13 +35,13 @@ const SearchResults = () => {
     async function bookPromise() {
       try {
         const bookObject = await axios({
-          url: "https://www.googleapis.com/books/v1/volumes/",
-          params: {
-            q: searchQuery,
-            key: API_KEY_BOOKS,
-            language: "en",
-          },
-        });
+			url: "https://www.googleapis.com/books/v1/volumes/",
+			params: {
+				q: searchQuery,
+				key: "AIzaSyDCEbB_2pq9kGnJgq1tJ8Z0gzoR5LgN9gQ",
+				language: "en",
+			},
+		})
         return bookObject;
       } catch (error) {
         setTimeout(()=>setLoading(false), 2000);
