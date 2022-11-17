@@ -1,12 +1,11 @@
 import video from './assets/background-video.mov'
-// import logo from './assets/logo.svg';
-
 
 const Main = () => {
   return (
-    <main>
+
+    <main> {/* background video for default main route */}
       <video className="main-video" loop playsInline autoPlay muted>
-        <source src={video} type="video/mp4" alt="A woman with a Chanel purse walks towards a lighthouse in the middle of a frozen lake." />
+        <source src={video} type="video/mp4" alt="Video compilation of people watching a movie in a cinema and a woman reading a book." />
       </video>
       <div className="main-search-container">
         <h2>Is the book better?</h2>

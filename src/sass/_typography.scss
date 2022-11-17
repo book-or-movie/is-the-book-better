@@ -1,7 +1,6 @@
 @use "variables" as *;
 @use "./mixins" as *;
 
-
 //Font face mixins
 @include font-face(Maitree, maitree-regular, 400);
 @include font-face(Maitree, maitree-bold, 700);
@@ -23,6 +22,16 @@ h1 {
   padding: 0;
   margin: 0;
   text-transform: uppercase;
+  text-align: center;
+  margin: 10px auto;
+
+  @include breakpoint(smallScreen) {
+    margin-top: 25px;
+  }      
+
+  @include breakpoint(largeScreen) {
+  margin-top: 10px;
+  }
 }
 
 h6 {

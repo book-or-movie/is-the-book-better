@@ -1,4 +1,4 @@
-// THIS IS THE LATEST VERSION AS OF 3 PM. NOV. 15 2022
+// THIS IS THE LATEST VERSION AS OF 5 PM. NOV. 15 2022
 
 import { Routes, Route } from "react-router-dom";
 import Main from "./Main";
@@ -9,7 +9,6 @@ import Footer from "./Footer";
 const App = () => {
   return (
     <div className="app-wrapper">
-
       <Header />
 
       <Routes>
@@ -18,7 +17,6 @@ const App = () => {
       </Routes>
 
       <Footer />
-
     </div>
   );
 }

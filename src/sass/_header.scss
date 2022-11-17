@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "./mixins" as *;
 
 
 header {
@@ -13,5 +14,35 @@ header {
     h1 {
       margin-left: 50px;
     }
+  }
+  @include breakpoint(smallScreen) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 150px;
+    background-color: transparent;
+    border-bottom: 2px solid $secondaryColor;
+    flex-direction: column;
+  }
+
+  @include breakpoint(mediumScreen) {
+    flex-direction: row;
+  }
+}
+
+// /10vh large screenpixels //992 medium //768
+
+.header-container {
+  width: 100%; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; 
+
+  @include breakpoint(largeScreen) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
