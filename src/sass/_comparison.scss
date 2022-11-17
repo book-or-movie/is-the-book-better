@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 .comparison {
     display: flex;
@@ -11,13 +12,13 @@
         justify-content: center;
         text-transform: uppercase;
         animation: final 3s ease-in;
-
         .outcome {
             background: white;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
             height: 50px;
             width: 250px;
             border-radius: 5px;
@@ -28,7 +29,17 @@
     justify-content: center;
     gap: 75px;
     animation: show 3s ease-in;
-
+    @include breakpoint (xsmallScreen) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @include breakpoint (smallScreen) {
+        flex-direction: column;
+        align-items: center;
+        }
+    @include breakpoint (mediumScreen) {
+        flex-direction: row;
+    }
         .book-container {
             display: flex;
             flex-direction: column;
@@ -44,6 +55,8 @@
             .book-image-container {
                 position: absolute;
                 top: 40px;
+                width: 75%;
+                height: auto;
             }
 
             .book-info-container {
@@ -63,10 +76,11 @@
             border-radius: 5px;
             padding-top: 25px;
             position: relative;
-
             .movie-image-container {
                 position: absolute;
                 top: 40px;
+                width: 75%;
+                height: auto;
             }
             
             .movie-info-container {
@@ -101,6 +115,11 @@
 
 .book-won:after, .movie-won:after, .outcome:after {
     filter: blur(50px);
+}
+
+.book-lost, .movie-lost {
+    scale: 0.9;
+    filter: blur(1px) grayscale(90);
 }
 
 @keyframes steam {

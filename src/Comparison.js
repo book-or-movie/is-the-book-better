@@ -23,7 +23,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
 			  <div className="comparison-container">				  
 
           {/* the below code assigns book-won class only if book rating is superior or tie*/}
-          <div className={`book-container ${bookRating >= movieRating ? "book-won" : ""} `}>
+          <div className={`book-container ${bookRating >= movieRating ? "book-won" : "book-lost"} `}>
             <div className="book-image-container">
               <img src={selectedBook.volumeInfo.imageLinks.thumbnail} alt={selectedBook.volumeInfo.title} />
             </div>{/* book-image-container div end */}
@@ -37,7 +37,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
           </div>{/* book-container div end */}
 
 				  {/* the below code assigns movie-won class only if movie rating is superior pr tie*/}
-          <div className={`movie-container ${bookRating <= movieRating ? "movie-won" : ""}`}>
+          <div className={`movie-container ${bookRating <= movieRating ? "movie-won" : "movie-lost"}`}>
             <div className="movie-image-container">
               <img src={selectedMovie.poster_path} alt={selectedMovie.title} />
             </div>{/* movie-image-container div end */}

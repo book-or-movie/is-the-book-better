@@ -1,13 +1,16 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+// .search-field {
+//     margin: 0;
+// }
+
 .search-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-
     @include breakpoint(smallScreen) {
         flex-direction: row;
     }
@@ -19,23 +22,29 @@
     .search-input {
         width: 200px;
         height: 25px;
-
+        border: solid 2px $primaryColor;
+        border-radius: 5px;
+        outline: none;
+        text-align: center;
+        background-image: linear-gradient(135deg, $primaryColor, $secondaryColor);
         @include breakpoint(smallScreen) {
             width: 400px;
             height: 35px;
         }
+        
     }
 
     ::placeholder {
         text-align: center;
         color: black;
+        background-image: linear-gradient(135deg, $primaryColor, $secondaryColor);
     }
 
     .search-submit-btn {
-        padding: 2px 35px;
-        border: 1px solid $primaryColor;
-        margin: 5px;
-
+        padding: 7px 35px;
+        background-image: linear-gradient(135deg, $primaryColor, $secondaryColor);
+        margin: 15px;
+        border-radius: 5px;
         @include breakpoint(smallScreen) {
             padding: 7px 35px;
         }

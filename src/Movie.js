@@ -11,7 +11,7 @@ const Movie = ({ movieArray, setMovie, setShowMovie, setShowComparison }) => {
     return (
         <section className="movie-display">
             <div className="wrapper">
-                <h2>Please select a movie</h2>
+                <h2>Please Select a Movie</h2>
                 <ul className="movie-pick">
                     {movieArray.map((movieObj) => {
     
@@ -19,7 +19,7 @@ const Movie = ({ movieArray, setMovie, setShowMovie, setShowComparison }) => {
                             <li key={movieObj.id}>
                                 <button onClick={() => { handleClick(movieObj) }} className="select-movie-btn"><img src={movieObj.poster_path} alt={movieObj.title} /></button>
 
-                                <p className="movie-title">Movie Title: {movieObj.title}</p>
+                                <p className="movie-title">{movieObj.title}</p>
                                 <p className="release-date">Released: {movieObj.release_date}</p>
                                 <p className="average-rating">Average Viewer Rating: {movieObj.vote_average}/10</p>
                                 <p className="synopsis">Synopsis: {movieObj.overview}</p>

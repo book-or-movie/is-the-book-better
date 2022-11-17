@@ -15,6 +15,11 @@ header {
 
   @include breakpoint(mediumScreen) {
     flex-direction: row;
+    height: 150px;
+  }
+  @include breakpoint(largeScreen) {
+    height: 75px;
+
   }
 }
 
