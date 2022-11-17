@@ -15,7 +15,6 @@ header {
   }
 
   @include breakpoint(mediumScreen) {
-    // height: 7vh;
     flex-direction: row;
   }
 }
@@ -28,7 +27,6 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center; 
-  border: 2px solid purple;
 
   @include breakpoint(largeScreen) {
     flex-direction: row;

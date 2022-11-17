@@ -24,7 +24,6 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   margin: 10px auto;
-  border: 2px solid blue; 
 
   @include breakpoint(smallScreen) {
     margin-top: 25px;

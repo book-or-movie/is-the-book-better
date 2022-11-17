@@ -336,7 +336,6 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   margin: 10px auto;
-  border: 2px solid blue;
 }
 @media only screen and (min-width: 576px) {
   h1 {
@@ -378,7 +377,6 @@ h6 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid purple;
 }
 @media only screen and (min-width: 992px) {
   .header-container {
@@ -397,7 +395,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 6vh;
+  height: 56px;
   border-top: 2px solid #ace8cd;
   display: flex;
   justify-content: center;
@@ -413,7 +411,7 @@ main {
   background-image: url(../assets/book-g04e8d3fcc_1920.jpg);
   background-color: transparent;
   background-position: center;
-  height: 87vh;
+  height: calc(100vh - 186px);
   margin: auto;
   color: white;
 }
@@ -533,7 +531,6 @@ main {
   justify-content: center;
   align-items: center;
   margin: 10px 0;
-  border: 2px solid yellow;
 }
 @media only screen and (min-width: 576px) {
   .search-form {
