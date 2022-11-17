@@ -1,0 +1,23 @@
+@use "variables" as *;
+@use "./mixins" as *;
+
+.loader-container {
+  height: calc(100vh - 13vh);
+  width: 100%;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader-container .gif-container img{
+  display: block;
+  min-width: 320px;
+  width: 320px;
+
+  @include breakpoint(mediumScreen) {
+    min-width: 500px;
+    width: 500px;
+  }
+}
+

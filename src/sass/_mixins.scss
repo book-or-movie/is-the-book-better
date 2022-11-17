@@ -1,0 +1,47 @@
+
+//Font Face
+
+// Usage:
+//@include font-face(family-name, file-name, weight)
+
+@mixin font-face($family-name, $file-name, $weight: 400) {
+    @font-face {
+        font-family: $family-name;
+        src: url("../assets/fonts/#{$file-name}.woff2") format("woff2"),
+        url("../assets/fonts/#{$file-name}.woff") format("woff"),
+        url("../assets/fonts/#{$file-name}.ttf") format("truetype");
+        font-weight: $weight;
+    }
+}
+
+@mixin breakpoint($point) {
+    
+    @if $point ==smallScreen {
+        @media only screen and (min-width: 576px) {
+            @content;
+        }
+    }
+
+    @else if $point ==mediumScreen {
+        @media only screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $point ==largeScreen {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+
+    @else if $point ==xlargeScreen {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $point ==xxlargeScreen {
+      @media only screen and (min-width: 1330px) {
+          @content;
+      }
+  }
+}

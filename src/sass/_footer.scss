@@ -1,0 +1,17 @@
+@use "variables" as *;
+
+footer {
+    background-color: $primaryColor;
+    font-family: 'Maitree', serif;
+    font-size: 1.3rem;
+    text-align: center;
+    color: $tertiaryColor;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    border-top: 2px solid $secondaryColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
