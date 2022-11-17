@@ -27,7 +27,6 @@ const SearchResults = () => {
   const urlParamsValue = useParams();
   const searchQuery = urlParamsValue.title;
   const API_KEY_BOOKS = process.env.BOOKS_API_KEY;
-  const API_KEY_MOVIE = process.env.MOVIE_API_KEY;
 
 
   //USE EFFECT FOR MOUNTING GOOGLE BOOKS AND MOVIE DB API DATA
