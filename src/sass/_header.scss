@@ -1,20 +1,7 @@
 @use "variables" as *;
 @use "./mixins" as *;
 
-
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 130px;
-  background-color: transparent;
-  border-bottom: 2px solid $secondaryColor;
-  .header-container {
-    width: fit-content;
-    h1 {
-      margin-left: 50px;
-    }
-  }
   @include breakpoint(smallScreen) {
     display: flex;
     justify-content: flex-start;
@@ -31,8 +18,6 @@ header {
   }
 }
 
-// /10vh large screenpixels //992 medium //768
-
 .header-container {
   width: 100%; 
   display: flex; 
@@ -45,4 +30,6 @@ header {
     align-items: center;
     justify-content: space-between;
   }
+
+
 }
