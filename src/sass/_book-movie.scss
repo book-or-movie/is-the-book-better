@@ -22,12 +22,14 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: $primaryColor;
+    align-items: center;
+    background-image: linear-gradient(135deg, $primaryColor, $secondaryColor, $tertiaryColor);
     border-radius: 6px;
     box-shadow: 2px 2px 2px black;
     padding: 30px;
     margin-bottom: 40px;
-
+    
+    
     @include breakpoint(mediumScreen) {
       width: calc((100%/2) - 10px);
       margin: 5px;
@@ -44,11 +46,6 @@
     }
   }
 
-  img {
-    width: 200px;
-    height: 300px;
-    text-align: center;
-  }
 }
 
 .book-description,
@@ -68,8 +65,17 @@
   transition: 0.2s ease-in-out;
   &:hover {
     scale: 1.05;
-    
   }
+  img {
+      width:100%;
+      height: auto;
+    }
+    @include breakpoint(smallScreen) {
+      width: 50%;
+      height: auto;
+      margin: 5px;
+    }
+
 }
 
 .more-info {
