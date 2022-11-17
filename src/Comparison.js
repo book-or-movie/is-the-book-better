@@ -6,6 +6,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
 
 //THIS COMPONENT COMPARES THE SELECTED BOOK AND MOVIE, THEN DECLARES A WINNER OR TIE BASED ON STANDARDIZED RATINGS
   return (
+
     <section className="comparison">
 
       <div className="wrapper">
@@ -51,7 +52,7 @@ const Comparison = ({ selectedBook, selectedMovie }) => {
 			  </div>{/* comparision-container div end */}
 			</div>{/* wrapper div end */}
 		</section>
-	)
+  )
 };
 
 export default Comparison;

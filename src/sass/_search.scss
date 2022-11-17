@@ -7,6 +7,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 30px;
+    .search-input {
+        width: 25vw;
+        height: 35px;
+        outline: none;
+        border: 2px solid $primaryColor;
+        border-radius: 5px;
+        text-align: center;
     margin: 10px 0;
 
     @include breakpoint(smallScreen) {

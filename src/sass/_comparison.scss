@@ -9,6 +9,8 @@
         padding: 50px;
         display: flex;
         justify-content: center;
+        text-transform: uppercase;
+        animation: final 3s ease-in;
 
         .outcome {
             background: white;
@@ -22,9 +24,10 @@
         }
     }
     .comparison-container {
-        display: flex;
-        justify-content: center;
-        gap: 75px;
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+    animation: show 3s ease-in;
 
         .book-container {
             display: flex;
@@ -74,20 +77,30 @@
     }
 }
 
+.book-lost , .movie-lost {
+    filter: grayscale(100%)blur(1px) brightness(90%) opacity(95%);
+    scale: 0.9;
+}
 
 .book-won:before, .book-won:after, .movie-won:before, .movie-won:after, .outcome:before, .outcome:after  {
     content: ''; 
     border-radius: 5px;
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-      #0000ff, #00ff00,#ffff00, #ff0000);
-    background-size: 400%;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    z-index: -1;
-    animation: steam 30s linear infinite;
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+    filter:none;
+	animation: steam 30s linear infinite;
+
+}
+
+.book-won:after, .movie-won:after, .outcome:after {
+    filter: blur(50px);
 }
 
 @keyframes steam {
@@ -102,6 +115,21 @@
 	}
 }
 
-.book-won:after, .movie-won:after, .outcome:after {
-	filter: blur(50px);
+
+@keyframes final {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
