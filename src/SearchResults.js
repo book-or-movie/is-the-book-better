@@ -47,11 +47,13 @@ const SearchResults = () => {
 				return error;
 			}
 		}
-
+   
 		async function moviePromise() {
 			try {
 				const movieData = await axios({
-					url: `https://proxy.junocollege.com/https://api.themoviedb.org/3/search/movie`,
+
+          
+					url: `https://corsproxy.io/?https://api.themoviedb.org/3/search/movie?query=`,
 					params: {
 						api_key: '372d3f4f5198c56ab56f69a5848e02d3',
 						query: searchQuery,
